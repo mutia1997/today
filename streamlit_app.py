@@ -24,12 +24,6 @@ fig_fl.update_layout(plot_bgcolor='#ffffe0')  # Soft background color (krem)
 fig_fl.update_traces(line=dict(color='#00008b'))  # Soft line color (warna biru tua)
 st.plotly_chart(fig_fl, use_container_width=True)
 
-# Plot Time Series for Quantity Lost
-fig_qty = px.line(qty_data, x='Date', y='Qty Lost', title='Quantity Lost')
-fig_qty.update_layout(plot_bgcolor='#ffffe0')  # Soft background color (krem)
-fig_qty.update_traces(line=dict(color='#00008b'))  # Soft line color (warna biru tua)
-st.plotly_chart(fig_qty, use_container_width=True)
-
 # Display Top 5 Lost Products table
 st.subheader('Top 5 Lost Products')
 top_5_lost_products = lost_products_data.head(5).reset_index(drop=True)
