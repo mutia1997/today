@@ -6,7 +6,7 @@ import plotly.express as px
 fl_data = pd.read_csv('fltanggalperfebsortedbytanggalawal.csv')
 qty_data = pd.read_csv('qtylostpertanggal.csv')
 lost_products_data = pd.read_csv('lostproductsqty.csv')
-fl_produk_data = pd.read_csv('flprodukperfebsortedbyhuruf.csv')
+fl_produk_data = pd.read_csv('flprodukperfebsortedbyangka.csv')
 fl_mesin_data = pd.read_csv('flmesinperfebsortedbyangka.csv')
 fl_tanggal_data = pd.read_csv('fltanggalperfebsortedbyangka.csv')
 
