@@ -31,27 +31,31 @@ st.plotly_chart(fig_qty)
 
 # Top 5 Lost Products table
 st.subheader('Top 5 Lost Products')
-top5_lost_products = lostproductsqty.head(5)
+top5_lost_products = lostproductsqty.head(5).reset_index(drop=True)
 st.write(top5_lost_products)
+
 if st.button('Click here for more detail'):
     st.write(lostproductsqty)
 
 # Top 5 Financial Losses table
 st.subheader('Top 5 Financial Losses')
 st.write('By Products:')
-top5_fl_by_products = flprodukperfebsortedbyhuruf.head(5)
+top5_fl_by_products = flprodukperfebsortedbyhuruf.head(5).reset_index(drop=True)
 st.write(top5_fl_by_products)
+
 if st.button('Click here for more detail (By Products)'):
     st.write(flprodukperfebsortedbyhuruf)
 
 st.write('By Machine:')
-top5_fl_by_machine = flmesinperfebsortedbyangka.head(5)
+top5_fl_by_machine = flmesinperfebsortedbyangka.head(5).reset_index(drop=True)
 st.write(top5_fl_by_machine)
+
 if st.button('Click here for more detail (By Machine)'):
     st.write(flmesinperfebsortedbyangka)
 
 st.write('By Date:')
-top5_fl_by_date = fltanggalperfebsortedbyangka.head(5)
+top5_fl_by_date = fltanggalperfebsortedbyangka.head(5).reset_index(drop=True)
 st.write(top5_fl_by_date)
+
 if st.button('Click here for more detail (By Date)'):
-    st.write(fltanggalperfebsortedbyangka) 
+    st.write(fltanggalperfebsortedbyangka)
