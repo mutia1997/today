@@ -3,59 +3,61 @@ import pandas as pd
 import plotly.express as px
 
 # Load datasets
-fltanggalperfebsortedbytanggalawal = pd.read_csv('fltanggalperfebsortedbytanggalawal.csv')
-qtylostpertanggal = pd.read_csv('qtylostpertanggal.csv')
-lostproductsqty = pd.read_csv('lostproductsqty.csv')
-flprodukperfebsortedbyhuruf = pd.read_csv('flprodukperfebsortedbyhuruf.csv')
-flmesinperfebsortedbyangka = pd.read_csv('flmesinperfebsortedbyangka.csv')
-fltanggalperfebsortedbyangka = pd.read_csv('fltanggalperfebsortedbyangka.csv')
+fl_data = pd.read_csv('fltanggalperfebsortedbytanggalawal.csv')
+qty_data = pd.read_csv('qtylostpertanggal.csv')
+lost_products_data = pd.read_csv('lostproductsqty.csv')
+fl_produk_data = pd.read_csv('flprodukperfebsortedbyhuruf.csv')
+fl_mesin_data = pd.read_csv('flmesinperfebsortedbyangka.csv')
+fl_tanggal_data = pd.read_csv('fltanggalperfebsortedbyangka.csv')
 
-# Preprocess data
-fltanggalperfebsortedbytanggalawal['Date'] = pd.to_datetime(fltanggalperfebsortedbytanggalawal['Date'])
-fltanggalperfebsortedbytanggalawal['Financial Loss'] = fltanggalperfebsortedbytanggalawal['Financial Loss'].str.replace(',', '').astype(float)
+# Preprocess financial loss dataset
+fl_data['Date'] = pd.to_datetime(fl_data['Date'])
+fl_data['Financial Loss'] = fl_data['Financial Loss'].str.replace(',', '').astype(float)
 
-qtylostpertanggal['Date'] = pd.to_datetime(qtylostpertanggal['Date'])
+# Preprocess quantity lost dataset
+qty_data['Date'] = pd.to_datetime(qty_data['Date'])
 
-# Set Dashboard Title
-st.title('Dashboard for February')
+# Plot Time Series for Financial Losses
+st.plotly_chart(px.line(fl_data, x='Date', y='Financial Loss', title='Financial Losses'), use_container_width=True)
 
-# Time Series plot for Financial Losses
-st.subheader('Financial Losses Time Series')
-fig_fl = px.line(fltanggalperfebsortedbytanggalawal, x='Date', y='Financial Loss', title='Financial Losses')
-st.plotly_chart(fig_fl)
+# Plot Time Series for Quantity Lost
+st.plotly_chart(px.line(qty_data, x='Date', y='Qty Lost', title='Quantity Lost'), use_container_width=True)
 
-# Time Series plot for Quantity Lost
-st.subheader('Quantity Lost Time Series')
-fig_qty = px.line(qtylostpertanggal, x='Date', y='Qty Lost', title='Quantity Lost')
-st.plotly_chart(fig_qty)
-
-# Top 5 Lost Products table
+# Display Top 5 Lost Products table
 st.subheader('Top 5 Lost Products')
-top5_lost_products = lostproductsqty.head(5).reset_index(drop=True)
-st.write(top5_lost_products)
+top_5_lost_products = lost_products_data.head(5)
+st.write(top_5_lost_products)
 
+# Display option for more detail on Top 5 Lost Products table
 if st.button('Click here for more detail'):
-    st.write(lostproductsqty)
+    st.write(lost_products_data)
 
-# Top 5 Financial Losses table
-st.subheader('Top 5 Financial Losses')
-st.write('By Products:')
-top5_fl_by_products = flprodukperfebsortedbyhuruf.head(5).reset_index(drop=True)
-st.write(top5_fl_by_products)
+# Display Top 5 Financial Losses table by Products
+st.subheader('Top 5 Financial Losses by Products')
+top_5_fl_produk = fl_produk_data.head(5).reset_index(drop=True)
+top_5_fl_produk.index += 1  # Start index from 1
+st.write(top_5_fl_produk)
 
-if st.button('Click here for more detail (By Products)'):
-    st.write(flprodukperfebsortedbyhuruf)
+# Display option for more detail on Top 5 Financial Losses table by Products
+if st.button('Click here for more detail (by Products)'):
+    st.write(fl_produk_data)
 
-st.write('By Machine:')
-top5_fl_by_machine = flmesinperfebsortedbyangka.head(5).reset_index(drop=True)
-st.write(top5_fl_by_machine)
+# Display Top 5 Financial Losses table by Machine
+st.subheader('Top 5 Financial Losses by Machine')
+top_5_fl_mesin = fl_mesin_data.head(5).reset_index(drop=True)
+top_5_fl_mesin.index += 1  # Start index from 1
+st.write(top_5_fl_mesin)
 
-if st.button('Click here for more detail (By Machine)'):
-    st.write(flmesinperfebsortedbyangka)
+# Display option for more detail on Top 5 Financial Losses table by Machine
+if st.button('Click here for more detail (by Machine)'):
+    st.write(fl_mesin_data)
 
-st.write('By Date:')
-top5_fl_by_date = fltanggalperfebsortedbyangka.head(5).reset_index(drop=True)
-st.write(top5_fl_by_date)
+# Display Top 5 Financial Losses table by Date
+st.subheader('Top 5 Financial Losses by Date')
+top_5_fl_tanggal = fl_tanggal_data.head(5).reset_index(drop=True)
+top_5_fl_tanggal.index += 1  # Start index from 1
+st.write(top_5_fl_tanggal)
 
-if st.button('Click here for more detail (By Date)'):
-    st.write(fltanggalperfebsortedbyangka)
+# Display option for more detail on Top 5 Financial Losses table by Date
+if st.button('Click here for more detail (by Date)'):
+    st.write(fl_tanggal_data)
