@@ -87,4 +87,4 @@ st.write(top_5_fl_tanggal)
 
 # Display option for more detail on Top 5 Financial Losses table by Date
 if st.button('Click here for more detail (by Date)'):
-    st.write(fl_tanggal_data)
+    st.write(fl_tanggal_data) 
