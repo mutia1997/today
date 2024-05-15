@@ -17,11 +17,37 @@ fl_data['Financial Loss'] = fl_data['Financial Loss'].str.replace(',', '').astyp
 # Preprocess quantity lost dataset
 qty_data['Date'] = pd.to_datetime(qty_data['Date'])
 
+# Define color options
+color_options = {
+    'Black': '#000000',
+    'White': '#ffffff',
+    'Red': '#ff0000',
+    'Green': '#008000',
+    'Blue': '#0000ff',
+    'Yellow': '#ffff00',
+    'Purple': '#800080',
+    'Orange': '#ffa500',
+    'Cyan': '#00ffff',
+    'Pink': '#ffc0cb'
+}
+
+# Select background color
+background_color = st.sidebar.selectbox('Select background color:', options=list(color_options.keys()))
+
+# Select line color
+line_color = st.sidebar.selectbox('Select line color:', options=list(color_options.keys()))
+
 # Plot Time Series for Financial Losses
-st.plotly_chart(px.line(fl_data, x='Date', y='Financial Loss', title='Financial Losses'), use_container_width=True)
+fig_fl = px.line(fl_data, x='Date', y='Financial Loss', title='Financial Losses')
+fig_fl.update_layout(plot_bgcolor=color_options[background_color])
+fig_fl.update_traces(line=dict(color=color_options[line_color]))
+st.plotly_chart(fig_fl, use_container_width=True)
 
 # Plot Time Series for Quantity Lost
-st.plotly_chart(px.line(qty_data, x='Date', y='Qty Lost', title='Quantity Lost'), use_container_width=True)
+fig_qty = px.line(qty_data, x='Date', y='Qty Lost', title='Quantity Lost')
+fig_qty.update_layout(plot_bgcolor=color_options[background_color])
+fig_qty.update_traces(line=dict(color=color_options[line_color]))
+st.plotly_chart(fig_qty, use_container_width=True)
 
 # Display Top 5 Lost Products table
 st.subheader('Top 5 Lost Products')
