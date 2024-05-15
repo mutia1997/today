@@ -51,7 +51,8 @@ st.plotly_chart(fig_qty, use_container_width=True)
 
 # Display Top 5 Lost Products table
 st.subheader('Top 5 Lost Products')
-top_5_lost_products = lost_products_data.head(5)
+top_5_lost_products = lost_products_data.head(5).reset_index(drop=True)
+top_5_lost_products.index += 1
 st.write(top_5_lost_products)
 
 # Display option for more detail on Top 5 Lost Products table
