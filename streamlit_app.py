@@ -21,9 +21,9 @@ total_lost_products = lost_products_data['Qty Lost'].sum()
 total_financial_loss = fl_data['Financial Loss'].sum()
 
 # Display summary
-st.header('Analyzing Financial Loss Data for February 2024')
+st.header('Financial Loss Data for February 2024')
 st.write(f'Total Lost Products: {total_lost_products}')
-st.write(f'Total Financial Loss: ${total_financial_loss:,.2f}')
+st.write(f'Total Financial Loss: Rp{total_financial_loss:,.2f}')
 
 # Plot Time Series for Financial Losses
 fig_fl = px.line(fl_data, x='Date', y='Financial Loss', title='Financial Losses')
