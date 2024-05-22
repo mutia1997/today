@@ -24,6 +24,7 @@ total_financial_loss = fl_data['Financial Loss'].sum() + 2000
 st.header('Financial Loss Data for February 2024')
 st.write(f'Total Lost Products: {total_lost_products}')
 st.write(f'Total Financial Loss: Rp{total_financial_loss:,.2f}')
+st.write("Financial Loss Percentage: 1.6%")
 
 # Add "Home" option
 if st.button('Home'):
