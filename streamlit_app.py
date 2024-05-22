@@ -39,7 +39,8 @@ st.write(top_5_lost_products)
 
 # Display option for more details on Top 5 Lost Products table
 if st.button('Click here for more details', key='lost_products_detail'):
-    st.write(lost_products_data.index += 1)
+    top_5_lost_products.index += 1
+    st.write(top_5_lost_products)
 
 # Display Top 5 Financial Losses table by Products
 st.subheader('Top 5 Financial Losses by Products')
@@ -49,7 +50,8 @@ st.write(top_5_fl_produk)
 
 # Display option for more details on Top 5 Financial Losses table by Products
 if st.button('Click here for more details (by Products)', key='fl_produk_detail'):
-    st.write(fl_produk_data.index += 1)
+    top_5_fl_produk.index += 1
+    st.write(top_5_fl_produk)
 
 # Display Top 5 Financial Losses table by Machine
 st.subheader('Top 5 Financial Losses by Machine')
@@ -59,7 +61,8 @@ st.write(top_5_fl_mesin)
 
 # Display option for more details on Top 5 Financial Losses table by Machine
 if st.button('Click here for more details (by Machine)', key='fl_mesin_detail'):
-    st.write(fl_mesin_data.index += 1)
+    top_5_fl_mesin.index += 1
+    st.write(top_5_fl_mesin)
 
 # Display Top 5 Financial Losses table by Date
 st.subheader('Top 5 Financial Losses by Date')
@@ -69,4 +72,5 @@ st.write(top_5_fl_tanggal)
 
 # Display option for more details on Top 5 Financial Losses table by Date
 if st.button('Click here for more details (by Date)', key='fl_tanggal_detail'):
-    st.write(fl_tanggal_data.index += 1)
+    top_5_fl_tanggal.index += 1
+    st.write(top_5_fl_tanggal)
