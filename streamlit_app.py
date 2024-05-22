@@ -14,9 +14,6 @@ fl_tanggal_data = pd.read_csv('fltanggalperfebsortedbyangka.csv')
 fl_data['Date'] = pd.to_datetime(fl_data['Date'])
 fl_data['Financial Loss'] = fl_data['Financial Loss'].str.replace(',', '').astype(float)
 
-# Preprocess quantity lost dataset
-qty_data['Date'] = pd.to_datetime(qty_data['Date'])
-
 # Calculate total lost products
 total_lost_products = lost_products_data['Qty Lost'].sum()
 
@@ -24,7 +21,7 @@ total_lost_products = lost_products_data['Qty Lost'].sum()
 total_financial_loss = fl_data['Financial Loss'].sum()
 
 # Display summary
-st.header('Summary')
+st.header('Financial Loss Data for February 2024')
 st.write(f'Total Lost Products: {total_lost_products}')
 st.write(f'Total Financial Loss: ${total_financial_loss:,.2f}')
 
@@ -42,7 +39,7 @@ st.write(top_5_lost_products)
 
 # Display option for more details on Top 5 Lost Products table
 if st.button('Click here for more details', key='lost_products_detail'):
-    st.write(lost_products_data)
+    st.write(lost_products_data.index += 1)
 
 # Display Top 5 Financial Losses table by Products
 st.subheader('Top 5 Financial Losses by Products')
@@ -52,7 +49,7 @@ st.write(top_5_fl_produk)
 
 # Display option for more details on Top 5 Financial Losses table by Products
 if st.button('Click here for more details (by Products)', key='fl_produk_detail'):
-    st.write(fl_produk_data)
+    st.write(fl_produk_data.index += 1)
 
 # Display Top 5 Financial Losses table by Machine
 st.subheader('Top 5 Financial Losses by Machine')
@@ -62,7 +59,7 @@ st.write(top_5_fl_mesin)
 
 # Display option for more details on Top 5 Financial Losses table by Machine
 if st.button('Click here for more details (by Machine)', key='fl_mesin_detail'):
-    st.write(fl_mesin_data)
+    st.write(fl_mesin_data.index += 1)
 
 # Display Top 5 Financial Losses table by Date
 st.subheader('Top 5 Financial Losses by Date')
@@ -72,4 +69,4 @@ st.write(top_5_fl_tanggal)
 
 # Display option for more details on Top 5 Financial Losses table by Date
 if st.button('Click here for more details (by Date)', key='fl_tanggal_detail'):
-    st.write(fl_tanggal_data)
+    st.write(fl_tanggal_data.index += 1)
