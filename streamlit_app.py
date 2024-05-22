@@ -14,13 +14,11 @@ fl_tanggal_data = pd.read_csv('fltanggalperfebsortedbyangka.csv')
 fl_data['Date'] = pd.to_datetime(fl_data['Date'])
 fl_data['Financial Loss'] = fl_data['Financial Loss'].str.replace(',', '').astype(float)
 
-
 # Calculate total financial loss
 total_financial_loss = fl_data['Financial Loss'].sum() + 2000
 
 # Display summary
 st.header('Financial Loss Data for February 2024')
-st.write(f'Total Lost Products: {total_lost_products}')
 st.write(f'Total Financial Loss: Rp{total_financial_loss:,.2f}')
 st.write("Financial Loss Percentage: 1.6%")
 
