@@ -22,9 +22,6 @@ st.header('Financial Loss Data for February 2024')
 st.write(f'Total Financial Loss: Rp{total_financial_loss:,.2f}')
 st.write("Financial Loss Percentage: 1.6%")
 
-# Add "Home" option
-if st.button('Home'):
-    st.markdown('[Click here to go Home](https://22ndmay-dpn5dfogubnbsunxhffucm.streamlit.app/)')
 
 ## Plot Time Series for Financial Losses
 fig_fl = px.line(fl_data, x='Date', y='Financial Loss', title='Financial Losses')
