@@ -29,7 +29,7 @@ st.write(f'Total Financial Loss: Rp{total_financial_loss:,.2f}')
 if st.button('Home'):
     st.markdown('[Click here to go to Home](https://22ndmay-dpn5dfogubnbsunxhffucm.streamlit.app/)')
 
-# Plot Time Series for Financial Losses
+## Plot Time Series for Financial Losses
 fig_fl = px.line(fl_data, x='Date', y='Financial Loss', title='Financial Losses')
 fig_fl.update_layout(plot_bgcolor='#ffffe0')  # Soft background color (krem)
 fig_fl.update_traces(line=dict(color='#00008b'))  # Soft line color (warna biru tua)
