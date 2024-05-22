@@ -15,7 +15,7 @@ fl_data['Date'] = pd.to_datetime(fl_data['Date'])
 fl_data['Financial Loss'] = fl_data['Financial Loss'].str.replace(',', '').astype(float)
 
 # Calculate total lost products
-total_lost_products = lost_products_data['Qty Lost'].sum()
+total_lost_products = lost_products_data['Qty Lost'].sum() + 2000
 
 # Calculate total financial loss
 total_financial_loss = fl_data['Financial Loss'].sum()
