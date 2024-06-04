@@ -22,11 +22,11 @@ st.header('Financial Loss Data for February 2024')
 st.write(f'Total Financial Loss: Rp{total_financial_loss:,.2f}')
 st.write("Financial Loss Percentage: 1.6%")
 
+
 ## Plot Time Series for Financial Losses
 fig_fl = px.line(fl_data, x='Date', y='Financial Loss', title='Financial Losses')
 fig_fl.update_layout(plot_bgcolor='#ffffe0')  # Soft background color (krem)
 fig_fl.update_traces(line=dict(color='#00008b'))  # Soft line color (warna biru tua)
-fig_fl.update_xaxes(tickmode='linear')  # Menampilkan seluruh x ticks
 st.plotly_chart(fig_fl, use_container_width=True)
 
 # Display Top 5 Financial Losses table by Date
@@ -37,6 +37,7 @@ st.write(top_5_fl_tanggal)
 
 # Display option for more details on Top 5 Financial Losses table by Date
 if st.button('Click here for more details (by Date)', key='fl_tanggal_detail'):
+    fl_tanggal_data.index += 1
     st.write(fl_tanggal_data)
 
 # Display Top 5 Lost Products table
@@ -58,7 +59,7 @@ st.write(top_5_fl_produk)
 
 # Display option for more details on Top 5 Financial Losses table by Products
 if st.button('Click here for more details (by Products)', key='fl_produk_detail'):
-    fl_produk_data.index += 1
+    fl_produk_data.index +=1
     st.write(fl_produk_data)
 
 # Display Top 5 Financial Losses table by Machine
