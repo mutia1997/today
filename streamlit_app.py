@@ -22,7 +22,7 @@ st.header('Financial Loss Data for February 2024')
 st.write(f'Total Financial Loss: Rp{total_financial_loss:,.2f}')
 st.write("Financial Loss Percentage: 1.6%")
 
-# CSS Styling for Blue Border
+# CSS Styling for Blue Border on all tables
 st.markdown(
     """
     <style>
